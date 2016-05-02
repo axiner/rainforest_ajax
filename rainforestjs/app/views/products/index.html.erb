@@ -1,0 +1,16 @@
+<h1>Products</h1>
+
+<%= form_tag products_path, method: :get, authentication: false, id: 'search-form' do %>
+  <%= text_field_tag :search, params[:search] %>
+  <%= submit_tag "Search" %>
+<% end %>
+
+<%= link_to "New Products", new_product_path %>
+
+<div id="products">
+
+  <% @products.each do |product| %>
+    <%= render(partial: 'product', locals: {product: product})%>
+  <% end %>
+
+</div>
